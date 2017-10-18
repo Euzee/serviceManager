@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    package="sm.euzee.github.com.servicemanager">
+
+    <application
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:supportsRtl="true"
+        tools:ignore="GoogleAppIndexingWarning" />
+
+</manifest>

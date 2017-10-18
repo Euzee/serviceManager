@@ -1,0 +1,64 @@
+ext {
+    bintrayRepo = 'Libs'
+    bintrayName = 'serviceManager'
+
+    publishedGroupId = 'com.github.euzee'
+    libraryName = 'serviceManager'
+    artifact = 'serviceManager'
+
+    libraryDescription = 'Simple android util that helps to use background services as Job without hard changes. Compatible with Android O .'
+
+    siteUrl = 'https://github.com/Euzee/serviceManager'
+    gitUrl = 'https://github.com/Euzee/serviceManager.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'Euzee'
+    developerName = 'Euzee'
+    developerEmail = 'www.dimuha@mail.ru'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.1'
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName libraryVersion
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    def SUPPORT_LIBRARY_VERSION = '26.1.0'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:support-v4:$SUPPORT_LIBRARY_VERSION"
+}
+//apply from: 'install.gradle'
+//apply from: 'bintray.gradle'
+
+//task prepareApplicationProperties {
+//    File file = new File('README.md')
+//    String fileContents = file.getText('UTF-8')
+//    fileContents = fileContents.replaceAll("permissionUtil:\\d{1,}.\\d{1,}.\\d{1,}", "serviceManager:" + libraryVersion)
+//    file.write(fileContents)
+//}
+//tasks.preBuild.dependsOn 'prepareApplicationProperties'
