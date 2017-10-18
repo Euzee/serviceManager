@@ -3,10 +3,22 @@
 
     package="sm.euzee.github.com.servicemanager">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:supportsRtl="true"
-        tools:ignore="GoogleAppIndexingWarning" />
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <service
+            android:name="LocalService"
+            android:enabled="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name="LongTermService"
+            android:enabled="true" />
+    </application>
 
 </manifest>
