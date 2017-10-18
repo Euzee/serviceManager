@@ -23,6 +23,11 @@ ServiceManager.runService(context, GeofenceTransitionsIntentService.class);
  ServiceManager.runService(context, geo);
 ```
 
+In order to use it as last two ways - your service should extend `CompatService`
+``` java
+public abstract class CompatService extends JobIntentService
+```
+
 ## Callback
 
 ServiceCallback will be called when service will be ready to execute some job.
