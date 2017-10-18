@@ -62,3 +62,4 @@ task prepareApplicationProperties {
     file.write(fileContents)
 }
 tasks.preBuild.dependsOn 'prepareApplicationProperties'
+tasks.bintrayUpload.dependsOn 'install'
