@@ -9,8 +9,9 @@
 
 # ServiceManager
 A simple easy-to-use service manager for Android.
+Since Google released [Android O](https://developer.android.com/about/versions/oreo/background.html#services) - hard days for service background execution are come.
 You can use this library without even declaration of your service in manifest.
-Built over JobIntentService so it is compatible with all OS versions including Android O.
+Built over JobIntentService so it is compatible with all OS versions including **Android O**.
 ServiceManager can be used from any place with context only.
 
 ``` java
