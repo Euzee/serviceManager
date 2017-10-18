@@ -1,4 +1,8 @@
-<!---[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-permissionUtil-blue.svg?style=flat)](https://android-arsenal.com/details/1/5721)---> [![GitHub license](https://img.shields.io/github/license/dcendents/android-maven-gradle-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)[![CircleCI](https://circleci.com/gh/Euzee/serviceManager/tree/master.svg?style=svg)](https://circleci.com/gh/Euzee/serviceManager/tree/master) <!---
+<!---[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-permissionUtil-blue.svg?style=flat)](https://android-arsenal.com/details/1/5721)--->
+[![GitHub license](https://img.shields.io/github/license/dcendents/android-maven-gradle-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+[![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
+[![CircleCI](https://circleci.com/gh/Euzee/serviceManager/tree/master.svg?style=svg)](https://circleci.com/gh/Euzee/serviceManager/tree/master)
+<!---
 <br>
 <a href="http://apptractor.ru/info/articles/interesnyie-materialyi-dlya-razrabotchika-mobilnyih-prilozheniy-163-9-14-maya.html"><img src="http://apptractor.ru/logo_trans.png" height="30" width="118" ></a>
 --->
