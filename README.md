@@ -19,7 +19,7 @@ ServiceManager can be used from any place with context only.
 
 ServiceManager.runService(context, () -> {Logg.e(TAG,"Some Action");},true);
 
-//if you have already prepared service you can usi it as :
+//if you have already prepared service you can us it as :
 ServiceManager.runService(context, GeofenceTransitionsIntentService.class);
 
 //or if you need to add some data or actions you can use it like :
@@ -32,6 +32,8 @@ In order to use it as last two ways - your service should extend `CompatService`
 ``` java
 public abstract class CompatService extends JobIntentService
 ```
+
+Example project could be found [here](https://github.com/Euzee/serviceManagerExample)
 
 ## Callback
 
