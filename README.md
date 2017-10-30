@@ -1,11 +1,10 @@
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-serviceManager-green.svg?style=flat )]( https://android-arsenal.com/details/1/6354 )
 [![GitHub license](https://img.shields.io/github/license/dcendents/android-maven-gradle-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
-[![CircleCI](https://circleci.com/gh/Euzee/serviceManager/tree/master.svg?style=svg)](https://circleci.com/gh/Euzee/serviceManager/tree/master)
-<!---
-<br>
-<a href="http://apptractor.ru/info/articles/interesnyie-materialyi-dlya-razrabotchika-mobilnyih-prilozheniy-163-9-14-maya.html"><img src="http://apptractor.ru/logo_trans.png" height="30" width="118" ></a>
---->
+[![CircleCI](https://circleci.com/gh/Euzee/serviceManager/tree/master.svg?style=svg)](https://circleci.com/gh/Euzee/serviceManager/tree/master)<br>
+<a href="http://apptractor.ru/info/articles/interesnyie-materialyi-dlya-razrabotchika-mobilnyih-prilozheniy-187-23-29-oktyabrya.html"><img src="http://apptractor.ru/logo_trans.png" height="30" width="118" ></a> 
+<br><a href="https://habrahabr.ru/post/341106/"><p>Habrahabr</a>  
+
 
 # ServiceManager
 A simple easy-to-use service manager for Android.
