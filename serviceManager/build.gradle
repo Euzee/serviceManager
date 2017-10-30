@@ -11,7 +11,7 @@ ext {
     siteUrl = 'https://github.com/Euzee/serviceManager'
     gitUrl = 'https://github.com/Euzee/serviceManager.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'Euzee'
     developerName = 'Euzee'
@@ -22,11 +22,21 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+    }
+}
+
 apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 19
@@ -58,7 +68,7 @@ apply from: 'bintray.gradle'
 task prepareApplicationProperties {
     File file = new File('README.md')
     String fileContents = file.getText('UTF-8')
-    fileContents = fileContents.replaceAll("permissionUtil:\\d{1,}.\\d{1,}.\\d{1,}", "serviceManager:" + libraryVersion)
+    fileContents = fileContents.replaceAll("serviceManager:\\d{1,}.\\d{1,}.\\d{1,}", "serviceManager:" + libraryVersion)
     file.write(fileContents)
 }
 tasks.preBuild.dependsOn 'prepareApplicationProperties'

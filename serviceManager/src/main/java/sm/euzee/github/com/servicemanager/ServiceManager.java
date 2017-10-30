@@ -19,7 +19,7 @@ public class ServiceManager {
 
     private static Handler getHandler() {
         if (handler == null) {
-            HandlerThread thread = new HandlerThread("ServiceManagerThred");
+            HandlerThread thread = new HandlerThread("ServiceManagerThread");
             thread.start();
             handler = new Handler(thread.getLooper());
         }
@@ -36,51 +36,39 @@ public class ServiceManager {
     }
 
     public static void runService(Context context, Class<?> cls, Intent service) {
-        getHandler().post(new Runnable() {
-            @Override
-            public void run() {
-                ServiceCallback cb = new ServiceCallback() {
-                    @Override
-                    public void onHandleWork() {
-                        Intent bindableService = service == null ? new Intent(context, cls) : service;
-                        context.getApplicationContext().bindService(bindableService, new SimpleServiceConnection(bindableService), Context.BIND_AUTO_CREATE);
-                    }
-                };
-                callbacksStorage.put(cb.toString(), cb);
-                Intent localService = new Intent(context, LocalService.class);
-                localService.putExtra(CALLBACK_ID, cb.toString());
-                JobIntentService.enqueueWork(context, LocalService.class, LOCAL_JOB_ID, localService);
-            }
+        getHandler().post(() -> {
+            ServiceCallback cb = () -> {
+                Intent bindableService = service == null ? new Intent(context, cls) : service;
+                context.getApplicationContext().bindService(bindableService, new SimpleServiceConnection(bindableService), Context.BIND_AUTO_CREATE);
+            };
+            callbacksStorage.put(cb.toString(), cb);
+            Intent localService = new Intent(context, LocalService.class);
+            localService.putExtra(CALLBACK_ID, cb.toString());
+            JobIntentService.enqueueWork(context, LocalService.class, LOCAL_JOB_ID, localService);
         });
 
     }
 
     //In case if you don't want to create service you can use this method and just add actions in callback
     public static void runService(Context context, ServiceCallback callback, boolean isShortActions) {
-        getHandler().post(new Runnable() {
-            @Override
-            public void run() {
-                callbacksStorage.put(callback.toString(), callback);
-                Intent service = new Intent(context, isShortActions ? LocalService.class : LongTermService.class);
-                service.putExtra(CALLBACK_ID, callback.toString());
-                if (isShortActions) {
-                    JobIntentService.enqueueWork(context, LocalService.class, LOCAL_JOB_ID, service);
-                } else {
-                    context.getApplicationContext().bindService(service, new SimpleServiceConnection(service), Context.BIND_AUTO_CREATE);
-                }
+        getHandler().post(() -> {
+            callbacksStorage.put(callback.toString(), callback);
+            Intent service = new Intent(context, isShortActions ? LocalService.class : LongTermService.class);
+            service.putExtra(CALLBACK_ID, callback.toString());
+            if (isShortActions) {
+                JobIntentService.enqueueWork(context, LocalService.class, LOCAL_JOB_ID, service);
+            } else {
+                context.getApplicationContext().bindService(service, new SimpleServiceConnection(service), Context.BIND_AUTO_CREATE);
             }
         });
     }
 
     static void callDoneFor(Intent intent) {
-        getHandler().post(new Runnable() {
-            @Override
-            public void run() {
-                if (intent.getExtras() != null && intent.getExtras().containsKey(CALLBACK_ID)) {
-                    String callbackId = intent.getExtras().getString(CALLBACK_ID);
-                    if (callbacksStorage.containsKey(callbackId)) {
-                        callbacksStorage.get(callbackId).onHandleWork();
-                    }
+        getHandler().post(() -> {
+            if (intent.getExtras() != null && intent.getExtras().containsKey(CALLBACK_ID)) {
+                String callbackId = intent.getExtras().getString(CALLBACK_ID);
+                if (callbacksStorage.containsKey(callbackId)) {
+                    callbacksStorage.get(callbackId).onHandleWork();
                 }
             }
         });
@@ -95,12 +83,9 @@ public class ServiceManager {
 
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            getHandler().post(new Runnable() {
-                @Override
-                public void run() {
-                    CompatService compatService = ((CompatService.LocalBinder) iBinder).getService();
-                    compatService.fakeHandleJob(service);
-                }
+            getHandler().post(() -> {
+                CompatService compatService = ((CompatService.LocalBinder) iBinder).getService();
+                compatService.fakeHandleJob(service);
             });
         }
 
