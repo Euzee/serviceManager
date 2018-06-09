@@ -1,15 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
 
     package="sm.euzee.github.com.servicemanager">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <application
-        android:allowBackup="false"
-        android:fullBackupContent="false"
-        android:supportsRtl="true"
-        tools:ignore="GoogleAppIndexingWarning">
+    <application>
 
         <service
             android:name="LocalService"
