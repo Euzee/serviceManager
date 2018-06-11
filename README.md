@@ -1,6 +1,6 @@
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-serviceManager-green.svg?style=flat )]( https://android-arsenal.com/details/1/6354 )
 [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-[![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
+[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 [![CircleCI](https://circleci.com/gh/Euzee/serviceManager/tree/master.svg?style=svg)](https://circleci.com/gh/Euzee/serviceManager/tree/master)<br>
 <a href="http://apptractor.ru/info/articles/interesnyie-materialyi-dlya-razrabotchika-mobilnyih-prilozheniy-187-23-29-oktyabrya.html"><img src="http://apptractor.ru/logo_trans.png" height="30" width="118" ></a> 
 <br><a href="https://habrahabr.ru/post/341106/"><p>Habrahabr</a>  
@@ -56,7 +56,8 @@ repositories {
     //or direct link to repository or jitpack
     maven { url  "http://dl.bintray.com/euzee/Libs" } // or maven { url "https://jitpack.io" }
 }
-compile 'com.github.euzee:serviceManager:1.0.3'
+(with gradle plugin less then v3 use 'compile' instead of implementation) 
+implementation 'com.github.euzee:serviceManager:1.0.3'
 ```
 
 # License
